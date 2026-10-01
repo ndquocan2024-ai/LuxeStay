@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeStay Hotel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="top">
+        <h1>LuxeStay</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="nav-client" class="active">Khách hàng</a></li>
+                <li><a href="#" id="nav-admin">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="client-view">
+
+            <div class="client-grid">
+                <div>
+                    <h2>Booking</h2>
+
+                    <form id="booking-form">
+                        <p>
+                            <label>Full Name</label>
+                            <input name="name" required>
+                        </p>
+
+                        <p>
+                            <label>Phone:</label>
+                            <input name="phone" required>
+                        </p>
+
+                        <p>
+                            <label>Referral ID:</label>
+                            <input name="cid" id="f-cid" placeholder="Để trống nếu tự giới thiệu">
+                            <small id="discount-msg"></small>
+                        </p>
+
+                        <p>
+                            <label>Room Type:</label>
+                            <select name="type" required>
+                                <option value="Standard">Standard</option>
+                                <option value="VIP">VIP</option>
+                                <option value="President">President</option>
+                            </select>
+                        </p>
+
+                        <p>
+                            <label>Number of nights:</label>
+                            <input name="nights" type="number" min="1" required>
+                        </p>
+
+                        <p>
+                            <label>Room Number:</label>
+                            <input name="room" id="f-room" readonly>
+                        </p>
+
+                        <p id="form-msg"></p>
+
+                        <p>
+                            <button type="submit">Đặt phòng</button>
+                        </p>
+                    </form>
+                </div>
+
+                <div>
+                    <h2>List room</h2>
+                    <div class="room-grid"></div>
+                </div>
+            </div>
+
+            <button id="btn-group">Find adjacent rooms</button>
+            <input id="group-qty" type="number" min="2" max="6" placeholder="Số lượng phòng">
+            <p id="group-msg"></p>
+
+
+        </section>
+
+        <section id="admin-view" class="hide">
+
+            <div class="summary">
+                <div>
+                    <label>Total Revenue</label>
+                    <span id="st-total"></span>
+                </div>
+                <div>
+                    <label>Total Invoice:</label>
+                    <span id="st-big"></span>
+                </div>
+                <div>
+                    <label>Customer Name:</label>
+                    <span id="st-names"></span>
+                </div>
+            </div>
+
+            <div class="charts-wrapper">
+                <canvas id="chart" width="520" height="220"></canvas>
+                <div>
+                    <label>Sort Invoice:</label>
+                    <select id="sort-select">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div>
+                    <h3>Transaction History</h3>
+                    <table id="tb-history"></table>
+                </div>
+                <div>
+                    <h3>Customer List</h3>
+                    <table id="tb-customers"></table>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="model.js"></script>
+    <script src="utlis.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>
